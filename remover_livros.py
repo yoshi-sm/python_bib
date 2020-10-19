@@ -18,12 +18,7 @@ def rmv_ano(ano_limite):
 
 def rmv_titulo(titulo):
     dicionario = carregar()
-    temp = []
-    for i in range(len(dicionario["titulo"])):
-        if dicionario["titulo"][i] == titulo:
-            temp.append(i)
-
-    for i in reversed(temp):
-        for key in dicionario:
-            dicionario[key].pop(i)
+    temp = dicionario["titulo"].index((titulo))
+    for key in dicionario:
+        dicionario[key].pop(temp)
     salvar(dicionario)

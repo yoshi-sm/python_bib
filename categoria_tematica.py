@@ -1,8 +1,8 @@
 import json
 
 
-bd_cat = "categoria.dat"
-bd_tem = "tematica.dat"
+bd_cat = "bd/categoria.dat"
+bd_tem = "bd/tematica.dat"
 
 def reset_cat():
     with open(bd_cat, "w") as f:
@@ -22,6 +22,22 @@ def add_categoria(categoria):
         categ.update({categoria: []})
         with open(bd_cat, "w") as f:
             f.write(f"{json.dumps(categ)}")
+
+
+def add_livro_categoria(titulo, categoria):
+
+    with open(bd_cat, "r") as f:
+        categ_bd = json.loads(f.readline())
+    if categoria in categ_bd.keys():
+        if titulo not in categ_bd[categoria]:
+            categ_bd[categoria].append(titulo)
+            with open(bd_cat, "w") as f:
+                f.write(json.dumps(categ_bd))
+        else:
+            print(f'{titulo} já está em {categoria}!')
+
+    else:
+        print(f'A categoria: "{categoria}" não está cadastrada.')
 
 
 def obter_categorias():
@@ -47,3 +63,16 @@ def obter_tematicas():
     return temat
 
 
+def add_livro_tematica(titulo, tematica):
+    with open(bd_tem, "r") as f:
+        temat_bd = json.loads(f.readline())
+    if tematica in temat_bd.keys():
+        if titulo not in temat_bd[tematica]:
+            temat_bd[tematica].append(titulo)
+            with open(bd_tem, "w") as f:
+                f.write(json.dumps(temat_bd))
+        else:
+            print(f'{titulo} já está em {tematica}!')
+
+    else:
+        print(f'A tematica: "{tematica}" não está cadastrada.')

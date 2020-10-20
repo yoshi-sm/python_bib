@@ -1,6 +1,6 @@
 import json
 
-bd_func = "funcionarios.dat"
+bd_func = "bd/funcionarios.dat"
 
 
 def reset_funcionarios():

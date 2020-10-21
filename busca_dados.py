@@ -4,19 +4,23 @@ from saveload import *
 def busca(tipo, valor):
     dicionario = carregar()
     temp_index = []
-    if tipo in dicionario.keys():
+    tipos_possiveis = ["ano", "titulo", "autores", "assunto"]
+    if tipo in tipos_possiveis:
         for i in range(len(dicionario[tipo])):
             if dicionario[tipo][i] == valor:
                 temp_index.append(i)
-
+        for i in temp_index:
+            print("\n\n")
+            for key in dicionario:
+                print(f"{dicionario[key]}: {dicionario[key][i]}\n")
     else:
         print("modalidade de busca inválida!")
 
-    return temp_index
+
 
 #print dos livros de acordo com indices existentes em "lista"
-def print_livro(lista, dicionario):
+"""def print_livro(lista, dicionario):
     for i in lista:
-        print("\n")
+        print("\n\n")
         for key in dicionario:
-            print(dicionario[key][i], end=' ')
+            print(f"{dicionario[key]}: {dicionario[key][i]}\n")"""

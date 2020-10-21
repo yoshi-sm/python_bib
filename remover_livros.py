@@ -17,7 +17,11 @@ def rmv_ano(ano_limite):
 
 def rmv_titulo(titulo):
     dicionario = carregar()
-    temp = dicionario["titulo"].index(titulo)
-    for key in dicionario:
-        dicionario[key].pop(temp)
-    salvar(dicionario)
+    if titulo in dicionario["titulo"]:
+        while titulo in dicionario["titulo"]:
+            temp = dicionario["titulo"].index(titulo)
+            for key in dicionario:
+                dicionario[key].pop(temp)
+        salvar(dicionario)
+    else:
+        print(f"O livro {titulo} não está no acervo da biblioteca.")

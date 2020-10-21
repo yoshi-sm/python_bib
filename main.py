@@ -3,9 +3,14 @@ import cadastrolivro
 import importacao
 import categoria_tematica
 import alterar_quantidade
+import remover_livros
+import busca_dados
+import alugar_reservar
+import status_do_livro
+import relatorios
 
 def retornar():
-    input("\n\nPressione qualquer tecla para continuar:")
+    input("\n\nPressione 'Enter' para continuar:")
 
 
 def main():
@@ -25,9 +30,9 @@ def main():
                                 "\nb -Cadastrar categorias"
                                 "\nc -Cadastrar tematicas"
                                 "\nd -Atualizar a quantidade de unidades de um livro"
-                                "\ne -Atualizar títulos que podem ser reservados"
-                                "\nf -Remover títulos do acervo"
-                                "\ng -Busca de livros no acervo"
+                                "\ne -Remover títulos do acervo"
+                                "\nf -Busca de livros no acervo"
+                                "\ng -Alugar,reservar ou habilitar reserva de livro"
                                 "\nh -Obter status do livro"
                                 "\ni -Gerar relátorios"
                                 "\nj -Sair do sistema\n")
@@ -49,7 +54,7 @@ def main():
                     elif escolha_livro == "b":
                         print("Bem vindo ao cadastro de livros por importação!\n\n"
                               "O arquivo deve ser um dicionário com as chaves\n"
-                              "titulo, autores, assunto, ano, localização, unidades e unidades_disponiveis.\n")
+                              "titulo, autores, assunto, ano, localização, data_de_devolução, alugado, reservado.\n")
                         arquivo = input("Digite o caminho até o arquivo de importação!")
                         importacao.importa_arq(arquivo)
                         retornar()
@@ -95,10 +100,10 @@ def main():
                 while escolha == "c":
                     print("Bem vindo ao cadastro de tematicas!")
                     escolha_tematica = input("O que deseja fazer agora?"
-                                              "\na -Cadastrar nova tematica."
-                                              "\nb -Cadastrar livro em uma tematica existente."
-                                              "\nc -Obter tematicas existentes."
-                                              "\nz -Retornar ao menu anterior\n")
+                                             "\na -Cadastrar nova tematica."
+                                             "\nb -Cadastrar livro em uma tematica existente."
+                                             "\nc -Obter tematicas existentes."
+                                             "\nz -Retornar ao menu anterior\n")
 
                     if escolha_tematica == "a":
                         categoria_tematica.add_tematica(input("Digite o nome da tematica que deseja adicionar: "))
@@ -123,6 +128,7 @@ def main():
                         print("Opção inválida!")
                         retornar()
 
+                #olhar novamente
                 while escolha == "d":
                     print("Bem vindo à atualização de unidades de livro!")
                     escolha_att_livro = input("O que deseja fazer agora?"
@@ -131,15 +137,120 @@ def main():
 
                     if escolha_att_livro == "a":
                         alterar_quantidade.alt_quant(input("Digite o título do livro: "),
-                                                     input("Digite a nova quantidade: "))
-
+                                                     int(input("Digite a nova quantidade: ")))
                         retornar()
 
                     elif escolha_att_livro == "z":
-                        escolha = escolha_tematica
+                        escolha = escolha_att_livro
 
                     else:
                         print("Opção inválida!")
+                        retornar()
+
+                while escolha == "e":
+                    print("Bem vindo à remoção de livros do acervo!")
+
+                    escolha_remocao = input("O que deseja fazer agora?"
+                                            "\na -Remover livro por ano."
+                                            "\nb -Remover livro por título"
+                                            "\nz -Retornar ao menu anterior\n")
+
+                    if escolha_remocao == "a":
+                        remover_livros.rmv_ano(input("Digite o ano limite para remoção dos livros: "))
+                        retornar()
+
+                    elif escolha_remocao == "b":
+                        remover_livros.rmv_titulo(input("Digite o titulo do livro para remoção: "))
+                        retornar()
+
+                    elif escolha_remocao == "z":
+                        escolha = escolha_remocao
+
+                    else:
+                        print("Opção inválida!")
+                        retornar()
+
+                # testar
+                while escolha == "f":
+                    print("Bem vindo à busca de livros no acervo!")
+
+                    escolha_busca = input("O que deseja fazer agora?"
+                                          "\na -Procurar livros no acervo"
+                                          "\nz -Retornar ao menu anterior\n")
+
+                    if escolha_busca == "a":
+                        busca_dados.busca(input('Digite o tipo da busca: "ano", "titulo", "assunto" ou "autores".'),
+                                          input("Digite o termo de busca."))
+                        retornar()
+
+                    elif escolha_busca == "z":
+                        escolha = escolha_busca
+
+                    else:
+                        print("Opção inválida!")
+                        retornar()
+
+                while escolha == "g":
+                    print("Bem vindo à locação/reserva de livros do acervo!")
+
+                    escolha_aluguel = input("O que deseja fazer agora?"
+                                            "\na -Alugar um livro."
+                                            "\nb -Reservar um livro."
+                                            "\nc -Habilitar um livro para reserva."
+                                            "\nz -Retornar ao menu anterior\n")
+
+                    if escolha_aluguel == "a":
+                        alugar_reservar.alugar(input("Digite o título a ser alugado: "),
+                                               input("Digite a data de devolução(dd-mm-aaaa): "),
+                                               input("Digite o usuário que irá alugar: "))
+                        retornar()
+
+                    elif escolha_aluguel == "b":
+                        alugar_reservar.reservar(input("Digite o título a ser reservado: "),
+                                                 input("Digite o nome do usuário que irá reservar: "))
+                        retornar()
+
+                    elif escolha_aluguel == "c":
+                        alugar_reservar.habilitar_reserva(input("Digite o título a ser habilitado: "),
+                                                          int(input("Digite a quantidade a ser habilitada: ")))
+                        retornar()
+
+                    elif escolha_aluguel == "z":
+                        escolha = escolha_aluguel
+
+                    else:
+                        print("Opção inválida!")
+                        retornar()
+
+                while escolha == "h":
+
+                    print("Bem vindo ao menu status de livro!")
+                    escolha_status = input("O que deseja fazer agora?"
+                                           "\na -Verificar status de um título."
+                                           "\nz -Retornar ao menu anterior\n")
+
+                    if escolha_status == "a":
+                        print(status_do_livro.status(input("Digite o título do livro: ")))
+                        retornar()
+
+                    elif escolha_status == "z":
+                        escolha = escolha_status
+
+                    else:
+                        print("Opção inválida!")
+                        retornar()
+
+                while escolha == "i":
+                    print("Bem vindo ao menu de geração de relatórios!")
+
+                    escolha_relatorio = input("O que deseja fazer agora?"
+                                              "\na -Gerar relatório de acervo."
+                                              "\nb -Gerar relatório de categoria."
+                                              "\nc -Gerar relatório de temática."
+                                              "\nz -Retornar ao menu anterior\n")
+
+                    if escolha_relatorio == "a":
+                        relatorios.rel_acervo()
                         retornar()
 
                 while escolha == "j":

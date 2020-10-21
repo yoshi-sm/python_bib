@@ -8,7 +8,7 @@ from categoria_tematica import obter_categorias, obter_tematicas
 def rel_acervo():
     dicionario = carregar()
     with open(f"rel_acervo_{datetime.now().strftime('%d-%m-%Y-%f')}.txt", "w") as f:
-        f.write("Título              Autores       Localização       Alugado        Data de devolução\n\n")
+        f.write("Título      Autores       Localização       Alugado        Data de devolução\n\n")
         for i in range(len(dicionario["titulo"])):
             if dicionario['alugado'][i]:
                 dicionario['alugado'][i] = "Sim"

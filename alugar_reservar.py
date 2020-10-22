@@ -37,7 +37,7 @@ def reservar(titulo, usuario):
     else:
         print(f"O livro {titulo} não está no acervo da biblioteca.")
 
-def cancelar_reserva(titulo, usuario):
+"""def cancelar_reserva(titulo, usuario):
     dicionario = carregar()
     if titulo in dicionario["titulo"]:
         if usuario in dicionario["usuario_reserva"]:
@@ -45,7 +45,7 @@ def cancelar_reserva(titulo, usuario):
         else:
             print("Não existe usua")
     else:
-    print(f"O livro {titulo} não está no acervo da biblioteca.")
+    print(f"O livro {titulo} não está no acervo da biblioteca.")"""
 
 
 def verificar_reserva(titulo, usuario):

@@ -7,7 +7,7 @@ def reset_acervo():
     with open(banco_de_dados, "w") as f:
         f.write('{"titulo": [], "autores": [], "assunto": [],'
                 '"ano": [], "localizacao" : [], "data_devolucao": [],'
-                '"alugado": [], "reserva": [], "usuario_reserva": []}')
+                '"alugado": [], "reserva": [], "usuario_reserva": [], "usuario_aluguel": []}')
 
 #salva o dicionario parametro no arquivo "acervo.dat" no formato json
 def salvar(dicionario):

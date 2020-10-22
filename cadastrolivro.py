@@ -26,6 +26,7 @@ def cadastroLivros():
         cadastro["data_devolucao"].append("")
         cadastro["alugado"].append(False)
         cadastro["usuario_reserva"].append("")
+        cadastro["usuario_aluguel"].append("")
         cadastro["reserva"].append(False)
 
         salvar(cadastro)

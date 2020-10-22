@@ -1,13 +1,5 @@
-import funcionarios
-import cadastrolivro
-import importacao
-import categoria_tematica
-import alterar_quantidade
-import remover_livros
-import busca_dados
-import alugar_reservar
-import status_do_livro
-import relatorios
+import funcionarios, cadastrolivro, importacao, categoria_tematica, alterar_quantidade, remover_livros, busca_dados, alugar_reservar, status_do_livro, relatorios
+
 
 def retornar():
     input("\n\nPressione 'Enter' para continuar:")

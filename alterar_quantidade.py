@@ -1,16 +1,16 @@
-# from saveload import carregar, salvar
+from saveload import carregar, salvar
 
 
-# def alt_quant(titulo, quantidade):
-#     dicionario = carregar()
-#     if titulo in dicionario["titulo"]:
-#         temp = dicionario["titulo"].index(titulo)
-#         for i in range(int(quantidade)):
-#             for key in dicionario:
-#                 dicionario[key].insert(temp+1, dicionario[key][temp])
-#         salvar(dicionario)
-#     else:
-#         print(f"O livro {titulo} não está no acervo da biblioteca.")
+def alt_quant(titulo, quantidade):
+    dicionario = carregar()
+    if titulo in dicionario["titulo"]:
+        temp = dicionario["titulo"].index(titulo)
+        for i in range(int(quantidade)):
+            for key in dicionario:
+                dicionario[key].insert(temp+1, dicionario[key][temp])
+        salvar(dicionario)
+    else:
+        print(f"O livro {titulo} não está no acervo da biblioteca.")
 
 
 # """def alt_reserva(titulo, quantidade):

@@ -1,4 +1,4 @@
-from saveload import *
+from saveload import carregar
 from datetime import datetime
 from categoria_tematica import obter_categorias, obter_tematicas
 

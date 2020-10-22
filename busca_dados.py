@@ -1,4 +1,4 @@
-from saveload import *
+from saveload import carregar
 
 #retorna os indices do dicionario compativeis com a busca
 def busca(tipo, valor):
@@ -19,8 +19,8 @@ def busca(tipo, valor):
 
 
 #print dos livros de acordo com indices existentes em "lista"
-"""def print_livro(lista, dicionario):
-    for i in lista:
-        print("\n\n")
-        for key in dicionario:
-            print(f"{dicionario[key]}: {dicionario[key][i]}\n")"""
+# """def print_livro(lista, dicionario):
+#     for i in lista:
+#         print("\n\n")
+#         for key in dicionario:
+#             print(f"{dicionario[key]}: {dicionario[key][i]}\n")"""

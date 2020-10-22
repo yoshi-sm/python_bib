@@ -1,4 +1,4 @@
-from saveload import *
+from saveload import carregar, salvar
 import json
 
 

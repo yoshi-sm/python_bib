@@ -1,4 +1,4 @@
-from saveload import *
+from saveload import carregar, salvar
 
 
 # remove todos os livros que vieram antes do ano limite do BD

@@ -1,1 +1,2 @@
-# python_bib
+# Sistema de Biblioteca em Python
+

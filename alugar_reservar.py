@@ -1,4 +1,4 @@
-from saveload import *
+from saveload import carregar, salvar
 
 
 def habilitar_reserva(titulo, quantidade):

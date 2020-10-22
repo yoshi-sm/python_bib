@@ -23,13 +23,13 @@ def reservar(titulo, usuario):
         indice = dicionario["titulo"].index(titulo)
         contagem = dicionario["titulo"].count(titulo)
         contagem_disponiveis = 0
-        for i in range(indice, indice + contagem):
+        for i in range(indice + 1, indice + contagem):
             if dicionario["reserva"][i] and dicionario["usuario_reserva"][i] == "":
                 contagem_disponiveis += 1
         if contagem_disponiveis == 0:
             print("Não existem cópias do livro desejado disponíveis para reserva")
         else:
-            for i in range(indice, indice + contagem):
+            for i in range(indice + 1, indice + contagem):
                 if dicionario["reserva"][i] and dicionario["usuario_reserva"][i] == "":
                     dicionario["usuario_reserva"][i] = usuario
                     break
@@ -54,7 +54,7 @@ def verificar_reserva(titulo, usuario):
         indice = dicionario["titulo"].index(titulo)
         contagem = dicionario["titulo"].count(titulo)
         reserva_existente = 0
-        for i in range(indice, indice + contagem):
+        for i in range(indice + 1, indice + contagem):
             if dicionario["reserva"][i] and dicionario["usuario_reserva"][i] == usuario:
                 reserva_existente += 1
         if reserva_existente > 0:
@@ -70,7 +70,7 @@ def alugar(titulo, data_de_devolucao, usuario):
     if titulo in dicionario["titulo"]:
         indice = dicionario["titulo"].index(titulo)
         contagem = dicionario["titulo"].count(titulo)
-        for i in range(indice, indice + contagem):
+        for i in range(indice + 1, indice + contagem):
             if (not dicionario["reserva"][i]) and dicionario["usuario_reserva"][i] == '':
                 dicionario["alugado"][i] = True
                 dicionario["data_devolucao"][i] = data_de_devolucao

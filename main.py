@@ -34,7 +34,7 @@ def main():
                     escolha_livro = input("O que deseja fazer? Digite(a,b,c,d,...): "
                                           "\na -Digitar manualmente os dados do livro"
                                           "\nb -Importar através de um arquivo"
-                                          "\nz -Retornar ao menu anterior.")
+                                          "\nz -Retornar ao menu anterior.\n")
 
                     if escolha_livro == "a":
                         print("Bem vindo ao cadastro manual de livros!")

@@ -1,11 +1,10 @@
 from saveload import salvar, carregar
 
-
+base_de_dados = 'bd/acervo.json'
 
 def cadastroLivros():
-
     #Carregando os valores no dicionario
-    bd = carregar()
+    bd = carregar(base_de_dados)
 
     tamanho_array = len(bd)
     #Adicionando novos valores no dicionario
@@ -32,15 +31,5 @@ def cadastroLivros():
                 usuario_reserva = ""
                 )
 
-    salvar(cadastro)
+    salvar(base_de_dados, cadastro)
     print("Cadastro realizado!")
-
-
-    #print(cadastro)
-    #Salvando os novos valores
-
-
-
-#print(cadastroLivros())
-
-

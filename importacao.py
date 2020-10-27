@@ -2,6 +2,7 @@ from saveload import *
 import json
 
 
+#passa os dados de um arquivo .dat para o bd. Usar o bd/importacao.dat como teste!
 def importa_arq(arquivo):
     dicionario = carregar()
     with open(arquivo) as f:

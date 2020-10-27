@@ -9,6 +9,7 @@ import alugar_reservar
 import status_do_livro
 import relatorios
 
+
 def retornar():
     input("\n\nPressione 'Enter' para continuar:")
 
@@ -17,14 +18,14 @@ def main():
     rodar = True
     print("Seja bem vindo ao Morais Library!")
     while rodar:
-
+        #auteticacao de login
         login = funcionarios.login_func(input("Digite seu login: "), input("Digite sua senha: "))
 
         if login:
             print("login efetuado com sucesso!\n\n")
             escolha = "z"
             while escolha == "z":
-
+                #opcoes do menu principal
                 escolha = input("O que deseja fazer? Digite(a,b,c,d,...): "
                                 "\na -Cadastrar ou Importar novos livros"
                                 "\nb -Cadastrar categorias"
@@ -38,7 +39,7 @@ def main():
                                 "\nj -Sair do sistema\n")
 
                 while escolha == "a":
-
+                    #opcoes do menu "a"
                     escolha_livro = input("O que deseja fazer? Digite(a,b,c,d,...): "
                                           "\na -Digitar manualmente os dados do livro"
                                           "\nb -Importar através de um arquivo"
@@ -65,7 +66,7 @@ def main():
                     else:
                         print("Opção inválida!")
                         retornar()
-
+                #menu b
                 while escolha == "b":
                     print("Bem vindo ao cadastro de categorias!")
                     escolha_categoria = input("O que deseja fazer agora?"
@@ -96,7 +97,7 @@ def main():
                     else:
                         print("Opção inválida!")
                         retornar()
-
+                #menu c
                 while escolha == "c":
                     print("Bem vindo ao cadastro de tematicas!")
                     escolha_tematica = input("O que deseja fazer agora?"
@@ -128,7 +129,7 @@ def main():
                         print("Opção inválida!")
                         retornar()
 
-                #olhar novamente
+                #menu d
                 while escolha == "d":
                     print("Bem vindo à atualização de unidades de livro!")
                     escolha_att_livro = input("O que deseja fazer agora?"
@@ -137,7 +138,7 @@ def main():
 
                     if escolha_att_livro == "a":
                         alterar_quantidade.alt_quant(input("Digite o título do livro: "),
-                                                     int(input("Digite a nova quantidade: ")))
+                                                     int(input("Digite a quantidade a adicionar: ")))
                         retornar()
 
                     elif escolha_att_livro == "z":
@@ -147,6 +148,7 @@ def main():
                         print("Opção inválida!")
                         retornar()
 
+                #menu e
                 while escolha == "e":
                     print("Bem vindo à remoção de livros do acervo!")
 
@@ -170,7 +172,7 @@ def main():
                         print("Opção inválida!")
                         retornar()
 
-                # testar
+                #menu f
                 while escolha == "f":
                     print("Bem vindo à busca de livros no acervo!")
 
@@ -189,7 +191,7 @@ def main():
                     else:
                         print("Opção inválida!")
                         retornar()
-
+                #menu g
                 while escolha == "g":
                     print("Bem vindo à locação/reserva de livros do acervo!")
 
@@ -222,6 +224,7 @@ def main():
                         print("Opção inválida!")
                         retornar()
 
+                #menu h
                 while escolha == "h":
 
                     print("Bem vindo ao menu status de livro!")
@@ -240,6 +243,7 @@ def main():
                         print("Opção inválida!")
                         retornar()
 
+                #menu i
                 while escolha == "i":
                     print("Bem vindo ao menu de geração de relatórios!")
 
@@ -258,6 +262,7 @@ def main():
                         relatorios.rel_acervo()
                         retornar()"""
 
+                #menu j
                 while escolha == "j":
                     rodar = False
                     escolha = "y"

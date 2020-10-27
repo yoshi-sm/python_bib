@@ -1,6 +1,6 @@
 from saveload import *
 
-
+#adiciona "quantidade" copias de um livro ja existente
 def alt_quant(titulo, quantidade):
     dicionario = carregar()
     if titulo in dicionario["titulo"]:
@@ -13,15 +13,3 @@ def alt_quant(titulo, quantidade):
         print(f"O livro {titulo} não está no acervo da biblioteca.")
 
 
-"""def alt_reserva(titulo, quantidade):
-    dicionario = carregar()
-    if titulo in dicionario["titulo"]:
-        temp = dicionario["titulo"].index(titulo)
-        disponivel = dicionario["unidades"][temp]
-        if quantidade >= disponivel:
-            print("Quantidade digitada é inválida!")
-        else:
-            dicionario["unidades_reserva"][temp] = quantidade
-            salvar(dicionario)
-    else:
-        print(f"O livro {titulo} não está no acervo da biblioteca.")"""

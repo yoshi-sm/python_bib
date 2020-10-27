@@ -1,5 +1,5 @@
 import json
-
+#funcoes para mexer no bd de funcionarios, não utilizados no main(), exceto o login
 bd_func = "bd/funcionarios.dat"
 
 
@@ -24,6 +24,7 @@ def cadastro_func(usuario, senha):
             f.write(json.dumps(dicionario))
 
 
+#usado para auteticar o login no começo do main
 def login_func(login, senha):
     loggado = False
     with open(bd_func) as f:

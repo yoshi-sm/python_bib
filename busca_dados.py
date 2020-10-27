@@ -11,9 +11,11 @@ def busca(tipo, valor):
                 if dicionario[tipo][i] == valor:
                     temp_index.append(i)
             for i in temp_index:
-                print("\n\n")
+                print("Livro: ")
                 for key in dicionario:
-                    print(f"{dicionario[key]}: {dicionario[key][i]}\n")
+                    print(f"{key}: {dicionario[key][i]}, ", end='')
+                print("\n\n")
+
         else:
             print("Nenhum resultado encontrado!")
     else:
@@ -21,9 +23,3 @@ def busca(tipo, valor):
 
 
 
-#print dos livros de acordo com indices existentes em "lista"
-"""def print_livro(lista, dicionario):
-    for i in lista:
-        print("\n\n")
-        for key in dicionario:
-            print(f"{dicionario[key]}: {dicionario[key][i]}\n")"""

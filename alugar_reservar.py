@@ -1,6 +1,7 @@
 from saveload import *
 
 
+#habilita a reserva de um titulo
 def habilitar_reserva(titulo, quantidade):
     dicionario = carregar()
     if titulo in dicionario["titulo"]:
@@ -17,6 +18,7 @@ def habilitar_reserva(titulo, quantidade):
         print(f"O livro {titulo} não está no acervo da biblioteca.")
 
 
+#reserva um titulo
 def reservar(titulo, usuario):
     dicionario = carregar()
     if titulo in dicionario["titulo"]:
@@ -48,6 +50,7 @@ def reservar(titulo, usuario):
     print(f"O livro {titulo} não está no acervo da biblioteca.")"""
 
 
+#funcao a ser implementada na prox versao
 def verificar_reserva(titulo, usuario):
     dicionario = carregar()
     if titulo in dicionario["titulo"]:
@@ -65,8 +68,10 @@ def verificar_reserva(titulo, usuario):
         return False
 
 
+#aluga um livro para "usuario" com "data_de_devolucao"
 def alugar(titulo, data_de_devolucao, usuario):
     dicionario = carregar()
+    boole = False
     if titulo in dicionario["titulo"]:
         indice = dicionario["titulo"].index(titulo)
         contagem = dicionario["titulo"].count(titulo)
@@ -76,9 +81,11 @@ def alugar(titulo, data_de_devolucao, usuario):
                 dicionario["data_devolucao"][i] = data_de_devolucao
                 dicionario["usuario_aluguel"][i] = usuario
                 salvar(dicionario)
+                boole = True
+                print("Aluguel realizado com sucesso!")
                 break
-            else:
-                print("Não existem exemplares deste livro disponíveis para aluguel!")
+        if not boole:
+            print("Não existem exemplares deste livro disponíveis para aluguel!")
 
     else:
         print(f"O livro {titulo} não está no acervo da biblioteca.")

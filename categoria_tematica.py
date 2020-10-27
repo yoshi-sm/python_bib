@@ -4,16 +4,20 @@ import json
 bd_cat = "bd/categoria.dat"
 bd_tem = "bd/tematica.dat"
 
+
+#reseta bd categoria
 def reset_cat():
     with open(bd_cat, "w") as f:
         f.write("{}")
 
 
+#reseta bd tematica
 def reset_tem():
     with open(bd_tem, "w") as f:
         f.write("{}")
 
 
+#adiciona categoria ao bd
 def add_categoria(categoria):
 
     with open(bd_cat, "r") as f:
@@ -24,6 +28,7 @@ def add_categoria(categoria):
             f.write(f"{json.dumps(categ)}")
 
 
+#adiciona titulo de um livro ao bd
 def add_livro_categoria(titulo, categoria):
 
     with open(bd_cat, "r") as f:
@@ -40,6 +45,8 @@ def add_livro_categoria(titulo, categoria):
         print(f'A categoria: "{categoria}" não está cadastrada.')
 
 
+
+#mostra as categorias existentes
 def obter_categorias():
     with open(bd_cat, "r") as f:
         categ = json.loads(f.readline())
@@ -47,6 +54,8 @@ def obter_categorias():
     return categ
 
 
+
+#adiciona tematica ao bd
 def add_tematica(tematica):
     with open(bd_tem, "r") as f:
         temat = json.loads(f.readline())
@@ -56,6 +65,8 @@ def add_tematica(tematica):
             f.write(f"{json.dumps(temat)}")
 
 
+
+#mostra as tematicas existentes
 def obter_tematicas():
     with open(bd_tem, "r") as f:
         temat = json.loads(f.readline())
@@ -63,6 +74,8 @@ def obter_tematicas():
     return temat
 
 
+
+#adiciona um livro à tematica
 def add_livro_tematica(titulo, tematica):
     with open(bd_tem, "r") as f:
         temat_bd = json.loads(f.readline())

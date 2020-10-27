@@ -1,0 +1,1 @@
+{"titulo": ["livro 1", "livro 2"], "autores": ["autor 1", "autor 2"], "assunto": ["fantasia", "nao fantasia"],"ano": ["1", "2"], "localizacao" : ["ala a", "ala b"], "data_devolucao": ["", ""],"alugado": [false, false], "reserva": [false, false], "usuario_reserva": ["", ""], "usuario_aluguel": ["", ""]}

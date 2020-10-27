@@ -6,13 +6,16 @@ def busca(tipo, valor):
     temp_index = []
     tipos_possiveis = ["ano", "titulo", "autores", "assunto"]
     if tipo in tipos_possiveis:
-        for i in range(len(dicionario[tipo])):
-            if dicionario[tipo][i] == valor:
-                temp_index.append(i)
-        for i in temp_index:
-            print("\n\n")
-            for key in dicionario:
-                print(f"{dicionario[key]}: {dicionario[key][i]}\n")
+        if valor in dicionario[tipo]:
+            for i in range(len(dicionario[tipo])):
+                if dicionario[tipo][i] == valor:
+                    temp_index.append(i)
+            for i in temp_index:
+                print("\n\n")
+                for key in dicionario:
+                    print(f"{dicionario[key]}: {dicionario[key][i]}\n")
+        else:
+            print("Nenhum resultado encontrado!")
     else:
         print("modalidade de busca inválida!")
 

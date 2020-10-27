@@ -243,7 +243,12 @@ def main():
                 while escolha == "i":
                     print("Bem vindo ao menu de geração de relatórios!")
 
-                    escolha_relatorio = input("O que deseja fazer agora?"
+                    print("area em construção")
+                    retornar()
+                    escolha = "z"
+
+
+                    """escolha_relatorio = input("O que deseja fazer agora?"
                                               "\na -Gerar relatório de acervo."
                                               "\nb -Gerar relatório de categoria."
                                               "\nc -Gerar relatório de temática."
@@ -251,7 +256,7 @@ def main():
 
                     if escolha_relatorio == "a":
                         relatorios.rel_acervo()
-                        retornar()
+                        retornar()"""
 
                 while escolha == "j":
                     rodar = False

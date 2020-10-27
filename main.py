@@ -9,7 +9,7 @@ import alugar_reservar
 import status_do_livro
 import relatorios
 
-
+#logins : senhas -> yoshi : 1234, fernando : abcd, pedro : okok
 def retornar():
     input("\n\nPressione 'Enter' para continuar:")
 

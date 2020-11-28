@@ -7,37 +7,49 @@ from categoria_tematica import obter_categorias, obter_tematicas
 
 def rel_acervo():
     dicionario = carregar()
-    with open(f"rel_acervo_{datetime.now().strftime('%d-%m-%Y-%f')}.txt", "w") as f:
-        f.write("Título      Autores       Localização       Alugado        Data de devolução\n\n")
+    with open(f"relatorios/rel_acervo_{datetime.now().strftime('%d-%m-%Y-%f')}.txt", "w") as f:
+
+        f.write("RELATÓRIO GERAL DA BIBLIOTECA\n")
         for i in range(len(dicionario["titulo"])):
             if dicionario['alugado'][i]:
                 dicionario['alugado'][i] = "Sim"
+                f.write(f"========================================================================================\n"
+                    f"Título: {str(dicionario['titulo'][i])}\n"
+                    f"Autores: {str(dicionario['autores'][i])}\n"
+                    f"Localização: {dicionario['localizacao'][i]}\n"
+                    f"Alugado? {dicionario['alugado'][i]}\n"
+                    f"Data de devolução: {dicionario['data_devolucao'][i]}\n")
             else:
                 dicionario['alugado'][i] = "Não"
-            f.write(f"{str(dicionario['titulo'][i])}      {str(dicionario['autores'][i])}     "
-                    f"{dicionario['localizacao'][i]}        {dicionario['alugado'][i]}      "
-                    f"    {dicionario['data_devolucao'][i]}\n")
-
-        f.write(f"\n\n\n\nRelatorio gerado em: {datetime.now().strftime('%d-%m-%Y %H:%M:%S')}")
+                f.write(f"========================================================================================\n"
+                    f"Título: {str(dicionario['titulo'][i])}\n"
+                    f"Autores: {str(dicionario['autores'][i])}\n"
+                    f"Localização: {dicionario['localizacao'][i]}\n"
+                    f"Alugado? {dicionario['alugado'][i]}\n")
+        f.write(f"\n\n\nRelatorio gerado em: {datetime.now().strftime('%d-%m-%Y %H:%M:%S')}")
 
 
 def rel_categoria():
-    dicionario = carregar()
     categorias = obter_categorias()
-    with open(f"rel_categ_{datetime.now().strftime('%d-%m-%Y-%f')}.txt", "w") as f:
+    with open(f"relatorios/rel_categ_{datetime.now().strftime('%d-%m-%Y-%f')}.txt", "w") as f:
+        f.write("RELATÓRIO GERAL DE CATEGORIAS\n"
+        "========================================================================================\n")
         for i in categorias:
+            # "i" assume o valor do objeto
             f.write(f"Categoria: {i}\n")
-            if dicionario["categoria"].count(i) != 0:
-                f.write("Título do livro\n\n")
-                for j in range(len(dicionario["categoria"])):
-                    if i == dicionario["categoria"][j]:
-                        f.write(f"{dicionario['titulo'][j]}\n")
-            else:
-                f.write("Nenhum título com nessa categoria.")
 
-            f.write("\n\n\n")
+            try:
+                if categorias[i][0]:
+                    f.write("Livros na categoria: ")
+                    # Algum erro aqui:
+                    for j in range(len(categorias[i])):
+                        f.write(f" {categorias[i][j]},")
+            except:
+                f.write("Nenhum título nessa categoria.")
 
-        f.write(f"\n\n\n\nRelatorio gerado em: {datetime.now().strftime('%d-%m-%Y %H:%M:%S')}")
+            f.write(f"\n========================================================================================\n")
+
+        f.write(f"\n\n\nRelatorio gerado em: {datetime.now().strftime('%d-%m-%Y %H:%M:%S')}")
 
 
 def rel_tematica():

@@ -1,0 +1,20 @@
+RELATÓRIO GERAL DA BIBLIOTECA
+========================================================================================
+Título: pedro
+Autores: pedro
+Localização: aaaa
+Alugado? Não
+========================================================================================
+Título: bruh
+Autores: bruh
+Localização: bruh
+Alugado? Não
+========================================================================================
+Título: aaaa
+Autores: bbbb
+Localização: ddddd
+Alugado? Não
+
+
+
+Relatorio gerado em: 28-11-2020 14:43:39

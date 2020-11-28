@@ -293,6 +293,10 @@ def main():
                         relatorios.rel_categoria()
                         retornar()
 
+                    if escolha_relatorio == "c":
+                        relatorios.rel_tematica()
+                        retornar()
+
                     if escolha_relatorio == "z":
                         escolha = escolha_relatorio
 

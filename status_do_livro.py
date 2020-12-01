@@ -9,7 +9,7 @@ def status(titulo):
         contar_titulo = dicionario["titulo"].count(titulo)
         lista_main = []
         string_print = "Lista de livros:\n\n"
-        for i in range(indice, indice + contar_titulo - 1):
+        for i in range(indice, indice + contar_titulo):
             lista = [dicionario["localizacao"][i], dicionario["reserva"][i],
                      dicionario["alugado"][i], dicionario["data_devolucao"][i]]
             lista_main.append(lista)

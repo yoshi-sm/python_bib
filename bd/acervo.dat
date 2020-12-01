@@ -1,1 +1,1 @@
-{"titulo": ["pedro", "bruh", "aaaa"], "autores": ["pedro", "bruh", "bbbb"], "assunto": ["okok", "bruh", "cccc"], "ano": ["1997", "2000", "1990"], "localizacao": ["aaaa", "bruh", "ddddd"], "data_devolucao": ["", "", ""], "alugado": [false, false, false], "reserva": [true, false, false], "usuario_reserva": ["", "", ""], "usuario_aluguel": ["", "", ""]}
+{"titulo": [], "autores": [], "assunto": [], "ano": [], "localizacao": [], "data_devolucao": [], "alugado": [], "reserva": [], "usuario_reserva": [], "usuario_aluguel": []}

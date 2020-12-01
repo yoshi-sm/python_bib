@@ -25,13 +25,13 @@ def reservar(titulo, usuario):
         indice = dicionario["titulo"].index(titulo)
         contagem = dicionario["titulo"].count(titulo)
         contagem_disponiveis = 0
-        for i in range(indice + 1, indice + contagem):
+        for i in range(indice, indice + contagem):
             if dicionario["reserva"][i] and dicionario["usuario_reserva"][i] == "":
                 contagem_disponiveis += 1
         if contagem_disponiveis == 0:
             print("Não existem cópias do livro desejado disponíveis para reserva")
         else:
-            for i in range(indice + 1, indice + contagem):
+            for i in range(indice, indice + contagem):
                 if dicionario["reserva"][i] and dicionario["usuario_reserva"][i] == "":
                     dicionario["usuario_reserva"][i] = usuario
                     break
